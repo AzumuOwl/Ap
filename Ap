@@ -1,0 +1,114 @@
+
+dot11 ssid MIIX203
+   authentication open
+   guest-mode
+ 
+interface Dot11Radio1
+ ssid MIIX203
+ no shutdown
+
+interface GigabitEthernet0
+no shutdown
+
+---------------------------
+dot11 ssid MIIX203
+   authentication open
+   authentication key-management wpa version 2
+   wpa-psk ascii MIIX203
+   guest-mode
+ 
+interface Dot11Radio1
+ encryption mode ciphers aes-ccm
+ ssid MIIX203
+ no shutdown
+
+interface GigabitEthernet0
+no shutdown
+
+------------------------------
+
+dot11 ssid MIIX203-1
+   vlan 10
+   authentication open
+   mbssid guest-mode
+
+dot11 ssid MIIX203-2
+   vlan 20
+   authentication open
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii MIIX203
+
+interface Dot11Radio1
+ encryption vlan 20 mode ciphers aes-ccm
+ ssid MIIX203-1
+ ssid MIIX203-2
+ no shutdown
+
+interface Dot11Radio1.10
+ encapsulation dot1Q 10
+ bridge-group 10
+ no shutdown
+
+interface Dot11Radio1.20
+ encapsulation dot1Q 20
+ bridge-group 20
+ no shutdown
+
+interface GigabitEthernet0
+no shutdown
+
+interface GigabitEthernet0.10
+ encapsulation dot1Q 10
+ bridge-group 10
+ no shutdown
+
+interface GigabitEthernet0.20
+ encapsulation dot1Q 20
+ bridge-group 20
+ no shutdown
+
+--------------------------------------------------------
+dot11 ssid MIIX203-1
+   vlan 10
+   authentication open
+   authentication key-management wpa version 2
+   wpa-psk asciiMIIX203
+   mbssid guest-mode
+
+dot11 ssid MIIX203-2
+   vlan 20
+   authentication open
+   authentication key-management wpa version 2
+   mbssid guest-mode
+   wpa-psk ascii MIIX203
+
+interface Dot11Radio1
+ encryption vlan 10 mode ciphers aes-ccm
+ encryption vlan 20 mode ciphers aes-ccm
+ ssid MIIX203-1
+ ssid MIIX203-2
+ no shutdown
+
+interface Dot11Radio1.10
+ encapsulation dot1Q 10
+ bridge-group 10
+ no shutdown
+
+interface Dot11Radio1.20
+ encapsulation dot1Q 20
+ bridge-group 20
+ no shutdown
+
+interface GigabitEthernet0
+no shutdown
+
+interface GigabitEthernet0.10
+ encapsulation dot1Q 10
+ bridge-group 10
+ no shutdown
+
+interface GigabitEthernet0.20
+ encapsulation dot1Q 20
+ bridge-group 20
+ no shutdown
