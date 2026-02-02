@@ -41,6 +41,7 @@ dot11 ssid MIIX203-2
 
 interface Dot11Radio1
  encryption vlan 20 mode ciphers aes-ccm
+ mbssid
  ssid MIIX203-1
  ssid MIIX203-2
  no shutdown
@@ -85,7 +86,8 @@ dot11 ssid MIIX203-2
 
 interface Dot11Radio1
  encryption vlan 10 mode ciphers aes-ccm
- encryption vlan 20 mode ciphers aes-ccm
+ encryption vlan 20 mode ciphersaes-ccm
+ mbssid
  ssid MIIX203-1
  ssid MIIX203-2
  no shutdown
